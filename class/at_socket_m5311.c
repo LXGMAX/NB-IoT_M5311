@@ -5,7 +5,7 @@
  *
  * Change Logs:
  * Date           Author       Notes
- * 2020-03-17     LXG       the first version
+ * 2020-03-17     LXGMAX       the first version
  */
 
 #include <stdio.h>
