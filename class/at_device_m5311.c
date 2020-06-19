@@ -2,7 +2,7 @@
  * Copyright (c) 2006-2020, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
- * Notes: 驱动参考BC26修改而来，现已正常接入at组件，但还不规范接入env配置工具
+ * 
  * Change Logs:
  * Date           Author       Notes
  * 2020-03-17     LXGMAX       the first version
