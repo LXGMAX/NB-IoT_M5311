@@ -1,48 +1,51 @@
 /*
- * Copyright (c) 2006-2020, RT-Thread Development Team
+ * File      : at_device_m5311.h
+ * This file is part of RT-Thread RTOS
+ * COPYRIGHT (C) 2006 - 2018, RT-Thread Development Team
  *
- * SPDX-License-Identifier: Apache-2.0
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License along
+ *  with this program; if not, write to the Free Software Foundation, Inc.,
+ *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
  * Change Logs:
  * Date           Author       Notes
- * 2020-03-09     LXGMAX       the first version
+ * 2020-03-09     LXGMAX     first version
  */
-#ifndef DRIVERS_M5311_M5311_H_
-#define DRIVERS_M5311_M5311_H_
+ 
+#ifndef __AT_DEVICE_M5311_H__
+#define __AT_DEVICE_M5311_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #include <stdlib.h>
+
 #include <at_device.h>
 
-
-#define AT_DEVICE_USING_M5311
-
-#ifdef AT_DEVICE_USING_M5311
-
-#define AT_DEVICE_CLASS_M5311	0x13U
-// #define AT_DEVICE_M5311_INIT_ASYN
-/* M5311 develop part begin */
-#define M5311_CLIENT_NAME 		"uart2"
-#define M5311_POWER_PIN 		30	//PB14 30
-#define M5311_STATUS_PIN 		-1
-#define M5311_RECIEVE_BUFF_LEN 	4096
-/* M5311 develop part end*/
-
-/*	Max number of sockets supported by the m5311 device	*/
-#define AT_DEVICE_M5311_SOCKETS_NUM		5
+/* Max number of sockets supported by the m5311 device */
+#define AT_DEVICE_M5311_SOCKETS_NUM     5
 
 struct at_device_m5311{
-		char *device_name;
-		char *client_name;
+        char *device_name;
+        char *client_name;
 
-		int power_pin;
-		int power_status_pin;
-		size_t recieve_line_num;
-		struct at_device device;
-		void *user_data;
+        int power_pin;
+        size_t recieve_line_num;
+        struct at_device device;
+        
+        void *socket_data;
+        void *user_data;
 };
 
 #ifdef AT_USING_SOCKET
@@ -54,12 +57,8 @@ int m5311_socket_class_register(struct at_device_class *class);
 
 #endif /* AT_USING_SOCKET */
 
-#endif /* AT_DEVICE_USING_M5311 */
-
 #ifdef __cplusplus
 }
 #endif
 
-
-
-#endif /* DRIVERS_M5311_M5311_H_ */
+#endif /* __AT_DEVICE_M5311_H__ */
